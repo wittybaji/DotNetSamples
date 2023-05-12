@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckComboBoxSample", "Chec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirclePanelSample", "CirclePanelSample\CirclePanelSample.csproj", "{47DAC490-EFC4-4CFE-8913-0D0628AF85AE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowlSample", "GrowlSample\GrowlSample.csproj", "{C311F93B-2AE7-4CFF-AAFA-05BDAACAB9F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{47DAC490-EFC4-4CFE-8913-0D0628AF85AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47DAC490-EFC4-4CFE-8913-0D0628AF85AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47DAC490-EFC4-4CFE-8913-0D0628AF85AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C311F93B-2AE7-4CFF-AAFA-05BDAACAB9F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C311F93B-2AE7-4CFF-AAFA-05BDAACAB9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C311F93B-2AE7-4CFF-AAFA-05BDAACAB9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C311F93B-2AE7-4CFF-AAFA-05BDAACAB9F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -170,6 +176,7 @@ Global
 		{B4067360-EA47-402E-9B5B-9D6EAA73352E} = {35CA3CED-91D3-433E-AAC7-5FD1B74D00BE}
 		{D7F7AF2A-40F3-4B6D-9731-C93579F5AB11} = {5A0E0B9A-6C16-4B3A-BEB8-9D9642BF8E53}
 		{47DAC490-EFC4-4CFE-8913-0D0628AF85AE} = {5A0E0B9A-6C16-4B3A-BEB8-9D9642BF8E53}
+		{C311F93B-2AE7-4CFF-AAFA-05BDAACAB9F6} = {5A0E0B9A-6C16-4B3A-BEB8-9D9642BF8E53}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {843A8C02-26B4-4E19-8481-80B2AA909A39}
