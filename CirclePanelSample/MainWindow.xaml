@@ -1,0 +1,108 @@
+﻿<Window x:Class="CirclePanelSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:CirclePanelSample.MVVM.Controls"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:CirclePanelSample"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+        Title="MainWindow"
+        Width="800"
+        Height="450"
+        mc:Ignorable="d">
+    <Window.Resources>
+        <Color x:Key="SecondaryBorderColor">#757575</Color>
+        <SolidColorBrush x:Key="SecondaryBorderBrush"
+                         o:Freeze="True"
+                         Color="{DynamicResource SecondaryBorderColor}" />
+        <Geometry x:Key="CirclePanelDemoGeometry" o:Freeze="True">M28.677037,-2.2499313E-22 C38.75065,24.740243 38.50705,52.437974 27.999852,77.000001 L-1.7053028E-13,65.206651 C7.3550318,48.013234 7.5255431,28.624822 0.4740567,11.306663 z</Geometry>
+        <Geometry x:Key="CirclePanelRightGeometry" o:Freeze="True">M267.287478 892.162257c0 45.149912 59.597884 71.336861 93.008818 37.925926L740.458554 549.925926c21.671958-21.671958 21.671958-54.179894 0-75.851852L360.296296 93.911817c-33.410935-33.410935-93.008818-5.417989-93.008818 38.828924v759.421516z m0 0</Geometry>
+
+        <Style x:Key="RectangleFocusVisual" TargetType="Rectangle">
+            <Setter Property="Margin" Value="-2" />
+            <Setter Property="Opacity" Value=".6" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Stroke" Value="{DynamicResource SecondaryBorderBrush}" />
+            <Setter Property="StrokeThickness" Value="2" />
+            <Setter Property="StrokeDashArray" Value="1 1" />
+        </Style>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle RadiusX="4"
+                                   RadiusY="4"
+                                   Style="{StaticResource RectangleFocusVisual}" />
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BaseStyle" TargetType="Control">
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        </Style>
+        <Style x:Key="ButtonCustom"
+               BasedOn="{StaticResource BaseStyle}"
+               TargetType="Button">
+            <Setter Property="Background" Value="{x:Null}" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Chrome"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="4">
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              RecognizesAccessKey="True"
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="CirclePanelButton"
+               BasedOn="{StaticResource ButtonCustom}"
+               TargetType="Button">
+            <Setter Property="UseLayoutRounding" Value="False" />
+            <Setter Property="Height" Value="77" />
+            <Setter Property="Width" Value="36.06" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <StackPanel>
+                            <Path Width="36.06"
+                                  Height="77"
+                                  Data="{StaticResource CirclePanelDemoGeometry}"
+                                  Fill="Blue" />
+                            <Path Margin="12"
+                                  Data="{StaticResource CirclePanelRightGeometry}"
+                                  Fill="White"
+                                  Stretch="Uniform" />
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <controls:CirclePanel Margin="20"
+                              Diameter="170"
+                              OffsetAngle="-90">
+            <Button Content="111" Style="{StaticResource CirclePanelButton}" />
+            <Button Content="222" Style="{StaticResource CirclePanelButton}" />
+            <Button Content="333" Style="{StaticResource CirclePanelButton}" />
+            <Button Content="444" Style="{StaticResource CirclePanelButton}" />
+            <Button Content="555" Style="{StaticResource CirclePanelButton}" />
+            <Button Content="666" Style="{StaticResource CirclePanelButton}" />
+            <Button Content="777" Style="{StaticResource CirclePanelButton}" />
+            <Button Content="888" Style="{StaticResource CirclePanelButton}" />
+        </controls:CirclePanel>
+
+    </Grid>
+</Window>

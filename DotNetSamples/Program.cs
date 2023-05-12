@@ -8,7 +8,7 @@ namespace DotNetSamples
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine(TimeZoneInfo.Local.BaseUtcOffset.TotalHours);
 
@@ -30,7 +30,7 @@ namespace DotNetSamples
             Console.WriteLine(y);
             Console.WriteLine(String.Join("-", z2));
             Console.WriteLine(String.Join("-", rawData));
-            return;
+
             Fault f = new Fault();
             Console.WriteLine(f.Valid);
 

@@ -48,7 +48,8 @@ namespace XmlTest
             }
             catch (Exception ex)
             {
-                return default(T);
+                Console.WriteLine(ex.Message);
+                return default;
             }
         }
     }

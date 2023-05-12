@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,8 +7,8 @@ namespace AsyncTest
 {
     internal class Program
     {
-        static CancellationTokenSource tokenSource = new CancellationTokenSource();
-        static async Task Main(string[] args)
+        static readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
+        static async Task Main()
         {
             Console.WriteLine("Application started.");
             try
@@ -31,6 +32,19 @@ namespace AsyncTest
         {
             while (true)
             {
+                var client = new HttpClient();
+                var request = new HttpRequestMessage
+                {
+                    RequestUri = new Uri("https://www.thunderclient.com/welcome"),
+                    Method = HttpMethod.Get
+                };
+
+                request.Headers.Add("Accept", "*/*");
+                request.Headers.Add("User-Agent", "Thunder Client (https://www.thunderclient.com)");
+
+                var response = await client.SendAsync(request);
+                var result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(result);
                 if (tokenSource.Token.IsCancellationRequested == true)
                 {
                     //throw new OperationCanceledException("Operation Time Not Enough");
