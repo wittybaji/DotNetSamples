@@ -8,13 +8,14 @@ namespace AsyncTest
     internal class Program
     {
         static readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
-        static async Task Main()
+        static void Main()
         {
             Console.WriteLine("Application started.");
             try
             {
+                Task.Run(AsyncTask);
+                Console.ReadKey();
                 tokenSource.CancelAfter(3000);
-                await AsyncTask();
             }
             catch (OperationCanceledException)
             {
@@ -25,7 +26,7 @@ namespace AsyncTest
                 tokenSource.Dispose();
             }
             Console.WriteLine("Application ending.");
-            Console.ReadKey();
+            Console.ReadLine();
         }
 
         static async Task AsyncTask()
@@ -35,24 +36,39 @@ namespace AsyncTest
                 var client = new HttpClient();
                 var request = new HttpRequestMessage
                 {
-                    RequestUri = new Uri("https://www.thunderclient.com/welcome"),
+                    RequestUri = new Uri("https://v1.hitokoto.cn"),
                     Method = HttpMethod.Get
                 };
 
                 request.Headers.Add("Accept", "*/*");
-                request.Headers.Add("User-Agent", "Thunder Client (https://www.thunderclient.com)");
+                request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36");
 
                 var response = await client.SendAsync(request);
                 var result = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(result);
+                var hitokoto = Newtonsoft.Json.JsonConvert.DeserializeObject<Hitokoto>(result);
+                Console.WriteLine(hitokoto.hitokoto);
                 if (tokenSource.Token.IsCancellationRequested == true)
                 {
                     //throw new OperationCanceledException("Operation Time Not Enough");
                     break;
                 }
+                Console.WriteLine($"BeforeSleep{DateTime.Now}");
                 Thread.Sleep(1000);
+                Console.WriteLine($"AfterSleep{DateTime.Now}");
+
+                Console.WriteLine($"BeforeDelay{DateTime.Now}");
+                await Task.Delay(1000);
+                Console.WriteLine($"AfterDelay{DateTime.Now}");
+
                 Console.WriteLine($"AsyncTask{DateTime.Now}");
             }
         }
+
+        private class Hitokoto
+        {
+            public string hitokoto { get; set; }
+            public string from { get; set; }
+        }
+
     }
 }
