@@ -59,6 +59,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrowlSample", "GrowlSample\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructorTest", "ConstructorTest\ConstructorTest.csproj", "{B17696A3-A178-4362-BF88-93F90C360B9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelDataReaderTest", "ExcelDataReaderTest\ExcelDataReaderTest.csproj", "{2E20E841-0F60-421F-859D-A03D1331DC25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,10 @@ Global
 		{B17696A3-A178-4362-BF88-93F90C360B9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B17696A3-A178-4362-BF88-93F90C360B9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B17696A3-A178-4362-BF88-93F90C360B9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E20E841-0F60-421F-859D-A03D1331DC25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E20E841-0F60-421F-859D-A03D1331DC25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E20E841-0F60-421F-859D-A03D1331DC25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E20E841-0F60-421F-859D-A03D1331DC25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -184,6 +190,7 @@ Global
 		{47DAC490-EFC4-4CFE-8913-0D0628AF85AE} = {5A0E0B9A-6C16-4B3A-BEB8-9D9642BF8E53}
 		{C311F93B-2AE7-4CFF-AAFA-05BDAACAB9F6} = {5A0E0B9A-6C16-4B3A-BEB8-9D9642BF8E53}
 		{B17696A3-A178-4362-BF88-93F90C360B9F} = {A8F87FCE-AA44-4EF2-8F3F-329C09395CE0}
+		{2E20E841-0F60-421F-859D-A03D1331DC25} = {20ED3A60-BDF3-4818-AB54-E364F7577F02}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {843A8C02-26B4-4E19-8481-80B2AA909A39}
