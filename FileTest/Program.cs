@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Security.Cryptography;
 
 namespace FileTest
@@ -8,6 +10,13 @@ namespace FileTest
     {
         static void Main(string[] args)
         {
+            string current = @"D:\TCT\CurrentVersion";
+            var childs = GetChildren(current);
+            Console.WriteLine(childs.Count());
+
+            string ext = @"344.jpg";
+            string name = Path.GetFileNameWithoutExtension(ext);
+            Console.WriteLine(name);
             using (var md5 = MD5.Create())
             {
                 string path = @"D:\Desktop\344.jpg";
@@ -44,6 +53,11 @@ namespace FileTest
 
 
             Console.ReadLine();
+        }
+
+        private static IEnumerable<string> GetChildren(string path)
+        {
+            return Directory.Exists(path) ? Directory.GetFileSystemEntries(path) : (IEnumerable<string>)new List<string>();
         }
     }
 }

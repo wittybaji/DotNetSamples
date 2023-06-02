@@ -7,15 +7,16 @@ namespace AsyncTest
 {
     internal class Program
     {
-        static readonly CancellationTokenSource tokenSource = new CancellationTokenSource();
-        static void Main()
+        static readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
+
+        private static void Main()
         {
             Console.WriteLine("Application started.");
             try
             {
                 Task.Run(AsyncTask);
                 Console.ReadKey();
-                tokenSource.CancelAfter(3000);
+                _tokenSource.CancelAfter(3000);
             }
             catch (OperationCanceledException)
             {
@@ -23,7 +24,7 @@ namespace AsyncTest
             }
             finally
             {
-                tokenSource.Dispose();
+                _tokenSource.Dispose();
             }
             Console.WriteLine("Application ending.");
             Console.ReadLine();
@@ -47,7 +48,7 @@ namespace AsyncTest
                 var result = await response.Content.ReadAsStringAsync();
                 var hitokoto = Newtonsoft.Json.JsonConvert.DeserializeObject<Hitokoto>(result);
                 Console.WriteLine(hitokoto.hitokoto);
-                if (tokenSource.Token.IsCancellationRequested == true)
+                if (_tokenSource.Token.IsCancellationRequested)
                 {
                     //throw new OperationCanceledException("Operation Time Not Enough");
                     break;

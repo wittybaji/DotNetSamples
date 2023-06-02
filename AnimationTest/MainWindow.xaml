@@ -9,11 +9,86 @@
         Height="450"
         mc:Ignorable="d">
     <Grid>
-        <Button x:Name="BtnTest"
-                Width="100"
-                Height="40"
-                Background="Green"
-                Click="Button_Click"
-                Content="Test" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="TipsPanel" />
+
+        <Grid x:Name="FontColorPanel" />
+        <!--<TextBlock x:Name="TestText" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="36"
+                   Text="测试测试测试测试测试">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop x:Name="Stop1" Offset="0" Color="Red" />
+                    <GradientStop x:Name="Stop2" Offset="0" Color="Black" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+            <TextBlock.Triggers>
+                <EventTrigger RoutedEvent="TextBlock.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation AutoReverse="False"
+                                             Storyboard.TargetName="Stop1"
+                                             Storyboard.TargetProperty="(GradientStop.Offset)"
+                                             From="0"
+                                             To="1"
+                                             Duration="0:0:5" />
+                            <DoubleAnimation AutoReverse="False"
+                                             Storyboard.TargetName="Stop2"
+                                             Storyboard.TargetProperty="(GradientStop.Offset)"
+                                             From="0"
+                                             To="1"
+                                             Duration="0:0:5" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </TextBlock.Triggers>
+        -->
+        <!--<TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Play}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="Stop1"
+                                                         Storyboard.TargetProperty="(GradientStop.Offset)"
+                                                         From="0"
+                                                         To="1"
+                                                         Duration="0:0:5" />
+                                        <DoubleAnimation Storyboard.TargetName="Stop2"
+                                                         Storyboard.TargetProperty="(GradientStop.Offset)"
+                                                         From="0"
+                                                         To="1"
+                                                         Duration="0:0:5" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>-->
+        <!--
+
+        </TextBlock>-->
+
+        <StackPanel Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+            <Button Width="100"
+                    Height="40"
+                    Background="Green"
+                    Click="Button_Click"
+                    Content="TipsTest" />
+            <Button Width="100"
+                    Height="40"
+                    Background="Red"
+                    Click="Button_Click_1"
+                    Content="FontColorTest" />
+        </StackPanel>
+
     </Grid>
 </Window>
