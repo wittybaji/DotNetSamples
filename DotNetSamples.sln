@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.6.33712.159
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSamples", "DotNetSamples\DotNetSamples.csproj", "{E2BAEE99-658C-4442-B8F7-7CF067838624}"
 EndProject
@@ -75,7 +75,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionTest", "ExceptionT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassTest", "ClassTest\ClassTest.csproj", "{1CE05130-D7F3-4D5E-81A9-E478073A70E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassTestV6", "ClassTestV6\ClassTestV6.csproj", "{9720F33A-50D8-4259-9889-121BC7419337}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassTestV6", "ClassTestV6\ClassTestV6.csproj", "{9720F33A-50D8-4259-9889-121BC7419337}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DictionaryTest", "DictionaryTest\DictionaryTest.csproj", "{75F3878D-9789-40C3-A146-36F4C5F99947}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessTest", "ProcessTest\ProcessTest.csproj", "{B869D354-0E8D-4866-BF7B-0B713B418198}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -211,6 +215,14 @@ Global
 		{9720F33A-50D8-4259-9889-121BC7419337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9720F33A-50D8-4259-9889-121BC7419337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9720F33A-50D8-4259-9889-121BC7419337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75F3878D-9789-40C3-A146-36F4C5F99947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75F3878D-9789-40C3-A146-36F4C5F99947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75F3878D-9789-40C3-A146-36F4C5F99947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75F3878D-9789-40C3-A146-36F4C5F99947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B869D354-0E8D-4866-BF7B-0B713B418198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B869D354-0E8D-4866-BF7B-0B713B418198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B869D354-0E8D-4866-BF7B-0B713B418198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B869D354-0E8D-4866-BF7B-0B713B418198}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -247,6 +259,8 @@ Global
 		{BCAEA809-B6B6-4433-8B49-9D49E551DC1D} = {34FEA8AA-0331-4DA2-9AAC-9B897923E37F}
 		{1CE05130-D7F3-4D5E-81A9-E478073A70E9} = {A8F87FCE-AA44-4EF2-8F3F-329C09395CE0}
 		{9720F33A-50D8-4259-9889-121BC7419337} = {A8F87FCE-AA44-4EF2-8F3F-329C09395CE0}
+		{75F3878D-9789-40C3-A146-36F4C5F99947} = {A8F87FCE-AA44-4EF2-8F3F-329C09395CE0}
+		{B869D354-0E8D-4866-BF7B-0B713B418198} = {34FEA8AA-0331-4DA2-9AAC-9B897923E37F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {843A8C02-26B4-4E19-8481-80B2AA909A39}

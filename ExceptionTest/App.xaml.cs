@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -21,10 +22,7 @@ namespace ExceptionTest
             //非UI线程未捕获异常处理事件
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
-
-            Task.Run(() => { throw new Exception(); });
-
-            GC.Collect();
+            Task.Run(() => { throw new Exception("TestEx"); });
         }
 
 
