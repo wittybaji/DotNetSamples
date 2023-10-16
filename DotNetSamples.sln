@@ -89,6 +89,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTest", "TaskTest\TaskTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeException", "RuntimeException\RuntimeException.csproj", "{198EAC02-06E8-4396-A20C-1E5DAA43BFAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreSample", "EFCoreSample\EFCoreSample.csproj", "{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -247,6 +249,10 @@ Global
 		{198EAC02-06E8-4396-A20C-1E5DAA43BFAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{198EAC02-06E8-4396-A20C-1E5DAA43BFAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{198EAC02-06E8-4396-A20C-1E5DAA43BFAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -289,6 +295,7 @@ Global
 		{93363F92-FDF1-4A99-A75E-8A7E43A052FE} = {34FEA8AA-0331-4DA2-9AAC-9B897923E37F}
 		{A515F02E-FB85-4D31-8FFC-AD2BD3D01803} = {34FEA8AA-0331-4DA2-9AAC-9B897923E37F}
 		{198EAC02-06E8-4396-A20C-1E5DAA43BFAB} = {35CA3CED-91D3-433E-AAC7-5FD1B74D00BE}
+		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D} = {35CA3CED-91D3-433E-AAC7-5FD1B74D00BE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {843A8C02-26B4-4E19-8481-80B2AA909A39}
