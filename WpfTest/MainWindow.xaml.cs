@@ -1,4 +1,6 @@
-﻿namespace WpfTest
+﻿using System.Windows.Media;
+
+namespace WpfTest
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -8,6 +10,7 @@
         public MainWindow()
         {
             InitializeComponent();
+            new LinearGradientBrush(Color.FromRgb(1, 1, 1), Color.FromRgb(1, 1, 1), 45);
         }
 
 

@@ -10,6 +10,7 @@ namespace FileTest
     {
         static void Main(string[] args)
         {
+            ExtensionTest();
             string current = @"D:\TCT\CurrentVersion";
             var childs = GetChildren(current);
             Console.WriteLine(childs.Count());
@@ -59,5 +60,43 @@ namespace FileTest
         {
             return Directory.Exists(path) ? Directory.GetFileSystemEntries(path) : (IEnumerable<string>)new List<string>();
         }
+
+
+
+
+        private static void ExtensionTest()
+        {
+            string currentVersionDirectory = @"D:\TCT\CurrentVersion";
+            string lastVersionName = "";
+
+            // 文件夹不为空则备份
+            if (currentVersionDirectory != null && Directory.GetFileSystemEntries(currentVersionDirectory).Length != 0)
+            {
+                var fileInCurrentVersion = Directory.GetFiles(currentVersionDirectory);
+                foreach (var file in fileInCurrentVersion)
+                {
+                    string ext = Path.GetExtension(file);
+                    if (ext == "version")
+                    {
+                        lastVersionName = Path.GetFileNameWithoutExtension(file);
+                        break;
+                    }
+                }
+                if (string.IsNullOrEmpty(lastVersionName))
+                {
+                    //没有找到version文件
+                    lastVersionName = $"CurrentVersionBackUp_{DateTime.Now:yyyyMMddHHmmss}";
+                    Console.WriteLine(lastVersionName);
+                }
+                else
+                {
+                    Console.WriteLine(lastVersionName);
+                }
+            }
+        }
+
+
+
+
     }
 }

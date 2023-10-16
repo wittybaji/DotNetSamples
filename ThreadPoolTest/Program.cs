@@ -8,6 +8,16 @@ namespace ThreadPoolTest
     {
         static void Main()
         {
+
+            Thread testThread = new Thread(() =>
+            {
+                Console.WriteLine("testThread...");
+            })
+            { IsBackground = true };
+            testThread.Start();
+            Thread.Sleep(1000);
+            Console.WriteLine(testThread.IsAlive);
+
             int processorCount = Environment.ProcessorCount;
             Console.WriteLine($"ProcessorCount：{processorCount}");
             bool setMaxThreadsResult = ThreadPool.SetMaxThreads(processorCount, processorCount);
