@@ -9,12 +9,12 @@ namespace RedisTest
     {
         static void Main(string[] args)
         {
-            RedisConnection.Init("localhost:56379");
+            RedisConnection.Instance.Init("localhost:6379");
             var redis = RedisConnection.Instance.ConnectionMultiplexer;
             var db = redis.GetDatabase(0);
             Stopwatch watchWrite = new Stopwatch();
             watchWrite.Start();
-            for (int i = 0; i < 8888888; i++)
+            for (int i = 0; i < 888; i++)
             {
                 db.StringSetAsync(i.ToString(), "Hello World!" + DateTime.Now.Ticks);
             }
@@ -25,7 +25,7 @@ namespace RedisTest
             watchRead.Start();
             for (int i = 0; i < 10; i++)
             {
-                string index = r.Next(1, 8888888).ToString();
+                string index = r.Next(1, 888).ToString();
                 Console.WriteLine(index + " - " + db.StringGet(index));
             }
             watchRead.Stop();
@@ -35,7 +35,7 @@ namespace RedisTest
             Stopwatch watchDcWrite = new Stopwatch();
             watchDcWrite.Start();
             ConcurrentDictionary<string, string> dcTest = new ConcurrentDictionary<string, string>();
-            for (int i = 0; i < 8888888; i++)
+            for (int i = 0; i < 888; i++)
             {
                 string str = "Hello World!" + DateTime.Now.Ticks;
                 dcTest.AddOrUpdate(i.ToString(), str, (key, value) => { return value; });
@@ -47,16 +47,11 @@ namespace RedisTest
             watchDcRead.Start();
             for (int i = 0; i < 10; i++)
             {
-                string index = r.Next(1, 8888888).ToString();
+                string index = r.Next(1, 888).ToString();
                 Console.WriteLine(index + " - " + dcTest[index]);
             }
             watchDcRead.Stop();
             Console.WriteLine("Dictionary Read Time:" + watchDcRead.ElapsedMilliseconds);
-
-
-
-
-
 
             db.StringSet(TCMSKey.alarm.ToString(), "sgfsdrgasfsdr");
             string alarm = db.StringGet(TCMSKey.alarm.ToString());
@@ -66,35 +61,21 @@ namespace RedisTest
 
     public sealed class RedisConnection
     {
-        private static Lazy<RedisConnection> lazy = new Lazy<RedisConnection>(() =>
+        private string _settingOption;
+
+        public ConnectionMultiplexer ConnectionMultiplexer;
+
+        public static RedisConnection Instance;
+
+        static RedisConnection()
         {
-            if (String.IsNullOrEmpty(_settingOption))
-            {
-                throw new InvalidOperationException("Please call Init() first.");
-            }
-            return new RedisConnection();
-        });
-
-        private static string _settingOption;
-
-        public readonly ConnectionMultiplexer ConnectionMultiplexer;
-
-        public static RedisConnection Instance
-        {
-            get
-            {
-                return lazy.Value;
-            }
+            Instance = new RedisConnection();
         }
 
-        private RedisConnection()
-        {
-            ConnectionMultiplexer = ConnectionMultiplexer.Connect(_settingOption);
-        }
-
-        public static void Init(string settingOption)
+        public void Init(string settingOption)
         {
             _settingOption = settingOption;
+            ConnectionMultiplexer = ConnectionMultiplexer.Connect(_settingOption);
         }
     }
 
