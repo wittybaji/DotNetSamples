@@ -89,7 +89,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskTest", "TaskTest\TaskTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeException", "RuntimeException\RuntimeException.csproj", "{198EAC02-06E8-4396-A20C-1E5DAA43BFAB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCoreSample", "EFCoreSample\EFCoreSample.csproj", "{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFCoreSample", "EFCoreSample\EFCoreSample.csproj", "{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeSpanTest", "TimeSpanTest\TimeSpanTest.csproj", "{08F9B1DD-E24B-4EE8-B654-762E1EE3AB01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -253,6 +255,10 @@ Global
 		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08F9B1DD-E24B-4EE8-B654-762E1EE3AB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08F9B1DD-E24B-4EE8-B654-762E1EE3AB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08F9B1DD-E24B-4EE8-B654-762E1EE3AB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08F9B1DD-E24B-4EE8-B654-762E1EE3AB01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -296,6 +302,7 @@ Global
 		{A515F02E-FB85-4D31-8FFC-AD2BD3D01803} = {34FEA8AA-0331-4DA2-9AAC-9B897923E37F}
 		{198EAC02-06E8-4396-A20C-1E5DAA43BFAB} = {35CA3CED-91D3-433E-AAC7-5FD1B74D00BE}
 		{ABD5BA9E-1E0A-459C-8A26-3489DDCCB72D} = {35CA3CED-91D3-433E-AAC7-5FD1B74D00BE}
+		{08F9B1DD-E24B-4EE8-B654-762E1EE3AB01} = {A8F87FCE-AA44-4EF2-8F3F-329C09395CE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {843A8C02-26B4-4E19-8481-80B2AA909A39}
