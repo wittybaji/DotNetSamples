@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Concurrent;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 
 namespace RedisTest
 {
@@ -9,7 +11,12 @@ namespace RedisTest
     {
         static void Main(string[] args)
         {
-            RedisConnection.Instance.Init("localhost:6379");
+            RedisConnection.Instance.Init("localhost:6379,password=password");
+            //var keys = RedisConnection.Instance.RedisServer.Keys();
+
+            //string path = @"D:\redis.txt";
+            //File.WriteAllText(path, string.Join(Environment.NewLine, keys));
+
             var redis = RedisConnection.Instance.ConnectionMultiplexer;
             var db = redis.GetDatabase(0);
             Stopwatch watchWrite = new Stopwatch();
@@ -64,9 +71,9 @@ namespace RedisTest
         private string _settingOption;
 
         public ConnectionMultiplexer ConnectionMultiplexer;
+        public IServer RedisServer;
 
         public static RedisConnection Instance;
-
         static RedisConnection()
         {
             Instance = new RedisConnection();
@@ -74,8 +81,10 @@ namespace RedisTest
 
         public void Init(string settingOption)
         {
+            var options = ConfigurationOptions.Parse(settingOption);
             _settingOption = settingOption;
             ConnectionMultiplexer = ConnectionMultiplexer.Connect(_settingOption);
+            RedisServer = ConnectionMultiplexer.GetServer(options.EndPoints.First());
         }
     }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace TimeSpanTest
 {
@@ -8,17 +9,23 @@ namespace TimeSpanTest
         {
             try
             {
-                string tsStr = default;
-                var ts = TimeSpan.FromSeconds(3600);
+                StringBuilder tsStr =  new StringBuilder();
+                var ts = TimeSpan.FromSeconds(36000);
+
+                if (ts.Days > 0)
+                {
+                    tsStr.Append($"{ts.Days}天");
+                }
                 if (ts.Hours > 0)
                 {
-                     tsStr = ts.ToString(@"h\时m\分s\秒");
+                     tsStr.Append($"{ts.Hours}小时");
                 }
-                else
-                {
-                    tsStr = ts.ToString(@"m\分s\秒");
-                }
+                tsStr.Append($"{ts.Minutes}分钟");
+                tsStr.Append($"{ts.Seconds}秒");
                 Console.WriteLine(tsStr);
+
+                DateTime dateTime = DateTime.Now;
+                dateTime.ToString("HH:mm:ss");
             }
             catch (Exception ex)
             {
