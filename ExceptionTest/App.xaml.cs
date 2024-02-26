@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -84,21 +85,28 @@ namespace ExceptionTest
         /// </summary>
         private static string ExceptionToString(Exception ex, string info)
         {
-            StringBuilder str = new StringBuilder($"{DateTime.Now}, {info}发生了一个错误！{Environment.NewLine}");
+            Exception source;
             if (ex.InnerException == null)
             {
-                str.Append($"【对象名称】：{ex.Source}{Environment.NewLine}");
-                str.Append($"【异常类型】：{ex.GetType().Name}{Environment.NewLine}");
-                str.Append($"【详细信息】：{ex.Message}{Environment.NewLine}");
-                str.Append($"【堆栈调用】：{ex.StackTrace}");
+                source = ex;
             }
             else
             {
-                str.Append($"【对象名称】：{ex.InnerException.Source}{Environment.NewLine}");
-                str.Append($"【异常类型】：{ex.InnerException.GetType().Name}{Environment.NewLine}");
-                str.Append($"【详细信息】：{ex.InnerException.Message}{Environment.NewLine}");
-                str.Append($"【堆栈调用】：{ex.InnerException.StackTrace}");
+                source = ex.InnerException;
             }
+            StringBuilder str = new StringBuilder($"{DateTime.Now}, {info}发生了一个错误！{Environment.NewLine}");
+
+            StackTrace st = new StackTrace(source, true);
+            StackFrame frame = st.GetFrame(0);
+            str.Append($"【文件名】：{frame.GetFileName()}{Environment.NewLine}");
+            str.Append($"【行】：{frame.GetFileLineNumber()}{Environment.NewLine}");
+            str.Append($"【列】：{frame.GetFileColumnNumber()}{Environment.NewLine}");
+            str.Append($"【方法名】：{frame.GetMethod().Name}{Environment.NewLine}");
+            str.Append($"【对象名称】：{source.Source}{Environment.NewLine}");
+            str.Append($"【异常类型】：{source.GetType().Name}{Environment.NewLine}");
+            str.Append($"【详细信息】：{source.Message}{Environment.NewLine}");
+            str.Append($"【堆栈调用】：{source.StackTrace}{Environment.NewLine}");
+
             return str.ToString();
         }
 

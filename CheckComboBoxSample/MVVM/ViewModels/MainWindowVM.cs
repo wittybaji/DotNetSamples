@@ -26,7 +26,6 @@ namespace CheckComboBoxSample.MVVM.ViewModels
                 "草桥",
                 "新发地",
                 "新宫",
-
             };
             QueryCommand = new RelayCommand((o) =>
             {

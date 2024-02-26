@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 
 namespace DotNetSamples
@@ -10,82 +8,28 @@ namespace DotNetSamples
     {
         static void Main()
         {
+            DateTime time = DateTime.Now;
+            long timestamp = new DateTimeOffset(time).ToUnixTimeSeconds();
+            Console.WriteLine(timestamp);
+
+            DateTime dateTime = DateTimeOffset.FromUnixTimeSeconds(timestamp).LocalDateTime;
+            Console.WriteLine(dateTime);
+
+
+            string log = "E5-BA-94-E7-94-A8-E6-9C-8D-E5-8A-A1-E5-99-A8-E7-AD-89-E9-97-B4-E9-9A-94-E8-B0-83-E5-9B-BE-E6-97-B6-E5-BC-82-E5-B8-B8-EF-BC-8C-E6-97-A0-E6-B3-95-E7-A1-AE-E5-AE-9A-E5-88-97-E8-BD-A6-20-31-33-31-34-20-E8-BF-90-E8-A1-8C-E8-B7-AF-E5-BE-84-";
+
+            var testList = log.Split('-').Where(x => !string.IsNullOrWhiteSpace(x));
+            var byteList = testList.Select(x => byte.Parse(x, System.Globalization.NumberStyles.HexNumber)).ToArray();
+            string msg = Encoding.UTF8.GetString(byteList);
+            Console.WriteLine(msg);
+
+            DateTime tempArrTime = new DateTime();//到站时间
+            bool res = tempArrTime == new DateTime();
+            Console.WriteLine(res);
+
             Console.WriteLine(TimeZoneInfo.Local.BaseUtcOffset.TotalHours);
-
-            Console.WriteLine(0b01);
-            Console.WriteLine(0b10);
-            byte[] data = new byte[4] { 0x00, 0x00, 0xF0, 0x41 };
-            var stopSeconds = BitConverter.ToSingle(data, 0);
-            Console.WriteLine(stopSeconds);
-            Console.ReadKey();
-            List<int> rawData = new List<int>() { 1, 2, 3, 4 };
-            int x = 12;
-            int y = x;
-            Console.WriteLine(x);
-            var z = ChangeParam(ref x, rawData);
-            Console.WriteLine(x);
-            Console.WriteLine(String.Join("-", z));
-            Console.WriteLine(String.Join("-", rawData));
-            var z2 = ChangeParam(ref y, rawData);
-            Console.WriteLine(y);
-            Console.WriteLine(String.Join("-", z2));
-            Console.WriteLine(String.Join("-", rawData));
-
-            Fault f = new Fault();
-            Console.WriteLine(f.Valid);
-
-            Console.WriteLine("UInt16 " + UInt16.MinValue + "-" + UInt16.MaxValue);
-            Console.WriteLine("UInt32 " + UInt32.MinValue + "-" + UInt32.MaxValue);
-
-            List<Fault> times = new List<Fault>
-            {
-                new Fault() { Id = 1, Time = DateTime.Now.ToString() },
-                new Fault() { Id = 2, Time = DateTime.Now.AddSeconds(30).ToString() },
-                new Fault() { Id = 3, Time = DateTime.Now.AddSeconds(5).ToString() }
-            };
-
-            times = times.OrderByDescending(t => t.Time).ToList();
-            foreach (var item in times)
-            {
-                Console.WriteLine(item.Id);
-                Console.WriteLine(item.Time);
-            }
-
 
             Console.ReadLine();
         }
-
-        static List<int> ChangeParam(ref int a, List<int> b)
-        {
-            a = 10;
-            b.Add(6);
-            return b;
-        }
-
-        void Md5()
-        {
-            string str = "asefergaesdfserfawdfsfaw";
-            string md5 = "";
-            using (MD5 md5Hash = MD5.Create())
-            {
-                // 将输入字符串转换为byte数组并计算哈希值
-                byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(str));
-                StringBuilder sBuilder = new StringBuilder();
-                // 修改格式
-                foreach (var t in data)
-                {
-                    sBuilder.Append(t.ToString("x2"));
-                }
-                md5 = sBuilder.ToString();
-            }
-            Console.WriteLine(md5);
-        }
-    }
-
-    public class Fault
-    {
-        public int Id { get; set; }
-        public string Time { get; set; }
-        public bool Valid { get; set; }
     }
 }

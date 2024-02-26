@@ -12,6 +12,7 @@
     <StackPanel>
         <controls:CheckComboBox x:Name="MainCheckComboBox"
                                 Width="600"
+                                MaxDropDownHeight="100"
                                 ItemsSource="{Binding StationList}"
                                 PublicSelectedItems="{Binding SelectedStation}"
                                 ShowSelectAllButton="True" />
